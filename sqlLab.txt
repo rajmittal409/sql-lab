@@ -1,0 +1,50 @@
+SQL> select staff_name,design_code from staff_master
+  2  where hiredate>'01-JAN-2003'
+  3  and staff_sal between 12000 and 25000;
+
+STAFF_NAME                                         DESIGN_CODE                  
+-------------------------------------------------- -----------                  
+Arvind                                                     102                  
+Raviraj                                                    102                  
+Rahul                                                      102                  
+
+SQL> select staff_code,staff_name,dept_code from staff_master
+  2  where  (MONTHS_BETWEEN(SYSDATE,HIREDATE))>=216
+  3  order by hiredate desc;
+
+STAFF_CODE STAFF_NAME                                          DEPT_CODE        
+---------- -------------------------------------------------- ----------        
+    100006 Allen                                                      30        
+    100004 Anil                                                       20        
+    100005 John                                                       10        
+
+SQL> select * from staff_master
+  2  where mgr_code is null;
+
+no rows selected
+
+SQL> select * from book_master
+  2  where book_pub_year between 2001 and 2004
+  3  and book_name like '%"&"%';
+
+no rows selected
+
+SQL> select staff_name from staff_master
+  2  where STAFF_NAME LIKE '%_%';
+
+STAFF_NAME                                                                      
+--------------------------------------------------                              
+Arvind                                                                          
+Shyam                                                                           
+Mohan                                                                           
+Anil                                                                            
+John                                                                            
+Allen                                                                           
+Smith                                                                           
+Raviraj                                                                         
+Rahul                                                                           
+Ram                                                                             
+
+10 rows selected.
+
+SQL> spool off;
